@@ -1,1 +1,1 @@
-# cs434
+# cs434 Machine Learning Spring 2019
