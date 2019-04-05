@@ -1,6 +1,8 @@
 import turtle
 import argparse
 import inspect
+import random
+import pickle
 
 def draw_bag():
     turtle.shape('turtle')
@@ -78,7 +80,7 @@ def draw_triangles(number):
 
 
 def draw_spirals_until_escaped():
-    t = turle.Turtle()
+    t = turtle.Turtle()
 
     t.penup()
     t.left(random.randint(0, 360))
