@@ -6,9 +6,9 @@ import pickle
 
 def draw_bag():
     turtle.shape('turtle')
-    turtle.pen(pencolor='brown',pensize=5)
+    turtle.pen(pencolor='brown', pensize=5)
     turtle.penup()
-    turtle.goto(-35,35)
+    turtle.goto(-35, 35)
     turtle.pendown()
     turtle.right(90)
     turtle.forward(70)
@@ -16,6 +16,7 @@ def draw_bag():
     turtle.forward(70)
     turtle.left(90)
     turtle.forward(70)
+
 
 def escaped(position):
     x = int(position[0])
@@ -59,9 +60,7 @@ def draw_squares(number):
         t.goto(-i, -i)
         t.pendown()
         L.extend(draw_square(t, i*2))
-
     return L
-
 
 def draw_squares_until_escaped(n):
     t = turtle.Turtle()
@@ -69,7 +68,6 @@ def draw_squares_until_escaped(n):
 
     with open("data_square", "wb") as f:
         pickle.dump(L, f)
-
 
 def draw_triangles(number):
     t = turtle.Turtle()
@@ -116,17 +114,19 @@ if __name__ == '__main__':
            "spriangles": draw_random_spriangles}
 
     parser = argparse.ArgumentParser()
-    parser.add_argument("-f", "--function", choices = fns, help="One of " + ','.join(fns.keys()))
-    parser.add_argument("-n","--number",default=50,type=int, help="How many?")
+    parser.add_argument("-f", "--function", choices=fns,
+                        help="One of " + ','.join(fns.keys()))
+    parser.add_argument("-n", "--number", default=50,
+                        type=int, help="How many?")
     args = parser.parse_args()
 
     try:
         f = fns[args.function]
-        turtle.setworldcoordinates(-70,-70,70,70)
+        turtle.setworldcoordinates(-70, -70, 70, 70)
         draw_bag()
         turtle.hideturtle()
 
-        if len(inspect.getargspec(f).args)==1:
+        if len(inspect.getargspec(f).args) == 1:
             f(args.number)
         else:
             f()
