@@ -25,12 +25,10 @@ def best_feature_for_split(data):
 
 def potential_leaf_node(data):
     count = collections.Counter(i[-1] for i in data)
-    #print('count',count)
     return count.most_common(1)[0]
 
 def create_tree(data,label):
     category,count = potential_leaf_node(data)
-    #print('cat:',category)
 
     if count == len(data):
         return category
@@ -78,7 +76,7 @@ def find_edges(tree,lable,X,Y):
     diagonals = [i for i in set(X).intersection(set(Y))]
     diagonals.sort()
     L = [classify(tree,label,[d,d]) for d in diagonals]
-    low = L.index(false)
+    low = L.index(False)
     min_x = X[low]
     min_y = Y[low]
 
@@ -90,13 +88,15 @@ def find_edges(tree,lable,X,Y):
     return (min_x,min_y),(max_x,max_y) 
 
 
-#data = [[0,0,False],[-1,0,True],[1,0,True],[0,-1,True],[0,1,True]]
+# data = [[0,0,False],[-1,0,True],[1,0,True],[0,-1,True],[0,1,True]]
 
-with open("data_rand","rb") as f:
+with open("data_square","rb") as f:
     L = pickle.load(f)
 
 label = ['x','y','out']
 tree = create_tree(L,label)
 category = classify(tree,label,[1,1])
+
+
 print(as_rule_str(tree,label))
 
