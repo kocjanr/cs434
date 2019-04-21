@@ -1,10 +1,10 @@
 import java.util.concurrent.ThreadLocalRandom;
 
-String Word(){
+public static String Word(int wordSize){
   StringBuilder word = new StringBuilder();
   char[] alphabet = "abcdefghijklmnopqrstuvwxyz".toCharArray();
   
-  for(int i=0; i<3;i++){
+  for(int i=0; i<wordSize;i++){
     int randomNum = ThreadLocalRandom.current().nextInt(0, 23 + 1);
     char letter = alphabet[randomNum];
     
@@ -16,5 +16,5 @@ String Word(){
 }
 
 void setup() {
-  Word();
+  Word(3);
 }
