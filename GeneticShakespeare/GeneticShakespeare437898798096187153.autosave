@@ -25,28 +25,12 @@ void draw(){
   background(255);
   
   ArrayList<DNA>matingPool = new ArrayList<DNA>();
-  
+ 
   for(int i=0;i<population.length;i++){
-    population[i].fitness();
-    int n = int(population[i].fitness * 100);
-    println(n);
-    
-    for(int j=0;j<n;j++){
-      matingPool.add(population[i]);
-    }
+    int firstRandomNumber = (int)random(0,population.length);
+    int secondRandomNumber = (int)random(0,population.length);
+     
   }
-  
-  for (int i = 0; i < population.length; i++) {
-    int a = int(random(matingPool.size()));
-    int b = int(random(matingPool.size()));
-    
-    DNA parentA = matingPool.get(a);
-    DNA parentB = matingPool.get(b);
-    
-    DNA child = parentA.crossover(parentB);
-    child.mutate();
-  }
-  
-  
+
   
 }
