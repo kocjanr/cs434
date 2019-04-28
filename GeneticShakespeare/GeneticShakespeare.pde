@@ -2,6 +2,7 @@ DNA[] population = new DNA[100];
 float mutationRate = 0.01;
 int totalPopulation = 150;
 String target = "to be or not to be";
+int matchingCount = 0;
 
 void setup(){
   size(800,800);
@@ -56,6 +57,12 @@ void draw(){
     
     DNA parentA = matingPool.get(a);
     DNA parentB = matingPool.get(b);
+    
+    if(parentA.getPhrase().equals(parentA.getPhrase())){
+      println("Matching Parents");
+      matchingCount++;
+      parentA = matingPool.get(a);
+    }
     
     DNA child = parentA.crossover(parentB);
     child.mutate();
