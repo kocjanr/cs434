@@ -1,11 +1,11 @@
 class DNA {
-  String target ="to be or not to be";
-  char[] genes = new char[18];
+  char[] genes;
   float fitness;
-  float mutationRate = 0.01;
   
   
   DNA(){
+    genes = new char[target.length()];
+    
     for(int i=0;i<genes.length; ++i){
       genes[i] = (char)random(32,128);
     }
@@ -42,6 +42,8 @@ class DNA {
      }
   }
   
-  
+  String getPhrase(){
+  return new String(genes);
+  }
  
 }

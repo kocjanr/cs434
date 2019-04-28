@@ -1,7 +1,11 @@
 DNA[] population = new DNA[100];
+float mutationRate = 0.01;
+int totalPopulation = 150;
+String target = "to be or not to be";
 
 void setup(){
   size(800,800);
+  background(0);
   
   for(int i=0;i<population.length;++i){
     population[i] = new DNA();
@@ -21,20 +25,30 @@ void setup(){
   
 }
 
-void draw(){
-  background(255);
-  
+void draw(){  
   ArrayList<DNA>matingPool = new ArrayList<DNA>();
   
-  for(int i=0;i<population.length;i++){
+  for(int i=0; i < population.length; i++){
     population[i].fitness();
+  }
+  
+  for(int i=0;i<population.length;i++){
     int n = int(population[i].fitness * 100);
-    println(n);
     
-    for(int j=0;j<n;j++){
+      for(int j=0;j<n;j++){
       matingPool.add(population[i]);
     }
   }
+  
+  //for(int i=0;i<population.length;i++){
+  //  population[i].fitness();
+  //  int n = int(population[i].fitness * 100);
+    
+  //  for(int j=0;j<n;j++){
+  //    matingPool.add(population[i]);
+  //  }
+    
+  //}
   
   for (int i = 0; i < population.length; i++) {
     int a = int(random(matingPool.size()));
@@ -45,7 +59,19 @@ void draw(){
     
     DNA child = parentA.crossover(parentB);
     child.mutate();
+    
+    population[i] = child;
   }
+  
+  background(255);
+  fill(0);
+  frameRate(10);
+  String everything = "";
+  for (int i = 0; i < population.length; i++) {
+    everything += population[i].getPhrase() + "     ";
+  }
+  textFont(createFont("Courier",12,true),12);
+  text(everything,10,10,width,height);
   
   
   
