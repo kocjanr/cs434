@@ -11,18 +11,6 @@ void setup(){
     population[i] = new DNA();
   }
   
-  //for(DNA dna: population){
-  //  dna.fitness();
-  //  println(dna.fitness);
-  //}
-  
-  //for(DNA d:population){
-  //  for(char c : d.genes){
-  //  print(c);
-  //  }
-  //  println();
-  //}
-  
 }
 
 void draw(){  
@@ -39,16 +27,6 @@ void draw(){
       matingPool.add(population[i]);
     }
   }
-  
-  //for(int i=0;i<population.length;i++){
-  //  population[i].fitness();
-  //  int n = int(population[i].fitness * 100);
-    
-  //  for(int j=0;j<n;j++){
-  //    matingPool.add(population[i]);
-  //  }
-    
-  //}
   
   for (int i = 0; i < population.length; i++) {
     int a = int(random(matingPool.size()));
@@ -72,7 +50,4 @@ void draw(){
   }
   textFont(createFont("Courier",12,true),12);
   text(everything,10,10,width,height);
-  
-  
-  
 }
