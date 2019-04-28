@@ -39,15 +39,20 @@ void draw(){
     child.mutate();
     
     population[i] = child;
+    println(population[i].getPhrase());
+    if(population[i].getPhrase().equals(target)){
+      println(population[i].getPhrase());
+      exit();
+    }
   }
   
-  background(255);
-  fill(0);
-  frameRate(10);
-  String everything = "";
-  for (int i = 0; i < population.length; i++) {
-    everything += population[i].getPhrase() + "     ";
-  }
-  textFont(createFont("Courier",12,true),12);
-  text(everything,10,10,width,height);
+  //background(255);
+  //fill(0);
+  //frameRate(10);
+  //String everything = "";
+  //for (int i = 0; i < population.length; i++) {
+  //  everything += population[i].getPhrase() + "     ";
+  //}
+  //textFont(createFont("Courier",12,true),12);
+  //text(everything,10,10,width,height);
 }
