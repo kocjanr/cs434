@@ -2,10 +2,16 @@ DNA[] population = new DNA[100];
 float mutationRate = 0.01;
 int totalPopulation = 150;
 String target = "to be or not to be";
+int generations;
+float fitness;
+String best;
+String allPhrases;
 
 void setup(){
-  size(800,800);
-  background(0);
+  size(800,200);
+  generations = 0;
+  allPhrases = "";
+
   
   for(int i=0;i<population.length;++i){
     population[i] = new DNA();
@@ -14,10 +20,12 @@ void setup(){
 }
 
 void draw(){  
+  background(150);
   ArrayList<DNA>matingPool = new ArrayList<DNA>();
   
   for(int i=0; i < population.length; i++){
-    population[i].fitness();
+     population[i].fitness();
+     fitness = population[i].fitness;
   }
   
   for(int i=0;i<population.length;i++){
@@ -37,22 +45,45 @@ void draw(){
     
     DNA child = parentA.crossover(parentB);
     child.mutate();
+     best = child.getPhrase();
+    generations++;
     
     population[i] = child;
-    println(population[i].getPhrase());
+    //println(population[i].getPhrase());
     if(population[i].getPhrase().equals(target)){
       println(population[i].getPhrase());
       exit();
     }
   }
   
-  //background(255);
-  //fill(0);
+
+  fill(0);
   //frameRate(10);
   //String everything = "";
   //for (int i = 0; i < population.length; i++) {
   //  everything += population[i].getPhrase() + "     ";
   //}
-  //textFont(createFont("Courier",12,true),12);
-  //text(everything,10,10,width,height);
+  
+  
+  text("Best Phrase:",10,20);
+   text(best,10,50);
+  
+  text("Total generations:",10,100);
+  text(generations,125,100);
+  
+  text("average fitness:",10,125);
+  text(fitness,125,125);
+  
+  text("Total population:",10,150);
+  text(totalPopulation,125,150);
+  
+  text("mutation rate:",10,175);
+  text(mutationRate,125,175);
+  
+  for (int i = 0; i < population.length; i++) {
+    allPhrases += population[i].getPhrase() + "     ";
+  }
+
+  text(allPhrases,200,10,width,height);
+  
 }
