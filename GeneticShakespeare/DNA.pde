@@ -24,7 +24,7 @@ class DNA {
   DNA crossover(DNA partner){
     DNA child = new DNA();
     
-    int randomChance = int(random(0,1));
+    int randomChance = int(random(0,2));
     
     for(int i=0;i < genes.length;i++){
       if(randomChance == 0){
