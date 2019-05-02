@@ -9,4 +9,6 @@ class DNA {
       genes[i].mult(random(0, maxforce));
     }
   }
+  
+  
 }

@@ -3,8 +3,20 @@ class Population {
   Rocket[] population;
   ArrayList<Rocket> matingPool;
   int generations;
+  PVector target;
   
-  void fitness(){}
+  Population(float rate, int pop){
+    mutationRate = rate;
+    population = new Rocket[pop];
+    generations = 0;
+  
+  }
+  
+  void fitness(){
+    for(int i=0;i<population.length;i++){
+      population[i].fitness();
+    }
+  }
   void selection(){}
   void reproduction(){}
   
