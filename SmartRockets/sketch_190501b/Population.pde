@@ -4,6 +4,7 @@ class Population {
   ArrayList<Rocket> matingPool;
   int generations;
   PVector target;
+  float fitness;
   
   Population(float rate, int pop){
     mutationRate = rate;
