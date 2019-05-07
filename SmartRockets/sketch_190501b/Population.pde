@@ -19,7 +19,18 @@ class Population {
     }
   }
   
-  void selection(){}
+  void selection(){
+    float bestFitness = 0;
+    
+    for (int i=0;i<population.length;i++){
+      population[i].fitness();
+      bestFitness = population[i].fitness;
+      if(population[i].fitness >bestFitness ){
+        matingPool.add(population[i]);
+        
+      }
+    }
+  }
   
   void reproduction(){
     for(int i=0;i<population.length;i++){
