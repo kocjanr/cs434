@@ -25,7 +25,15 @@ class DNA {
     return crossOver;
   }
 
- 
+ void mutate(float m) {
+    for (int i = 0; i < genes.length; i++) {
+      if (random(1) < m) {
+        float angle = random(TWO_PI);
+        genes[i] = new PVector(cos(angle), sin(angle));
+        genes[i].mult(random(0, maxforce));
+      }
+    }
+  }
   
   
 }

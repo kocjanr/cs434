@@ -10,6 +10,12 @@ class Population {
     mutationRate = rate;
     population = new Rocket[pop];
     generations = 0;
+    matingPool = new ArrayList<Rocket>();
+    
+    for (int i = 0; i < population.length; i++) {
+      PVector position = new PVector(width/2,height+20);
+      population[i] = new Rocket(position, new DNA());
+    }
    
   }
   
@@ -26,14 +32,15 @@ class Population {
       population[i].fitness();
       bestFitness = population[i].fitness;
       if(population[i].fitness >bestFitness ){
-        matingPool.add(population[i]);
-        
+        matingPool.add(population[i]);        
       }
     }
   }
   
   void reproduction(){
     for(int i=0;i<population.length;i++){
+      
+      println(matingPool.size());
       int parentA = int(random(matingPool.size()));
       int parentB = int(random(matingPool.size()));
       

@@ -17,12 +17,12 @@ class Rocket {
     size = 4;
   }
   
-  Rocket(PVector location, DNA dna) {
+  Rocket(PVector location, DNA d) {
     acceleration = new PVector();
     velocity = new PVector();
     position = location.get();
     size = 4;
-    dna = dna;
+    dna = d;
   }
 
   void fitness() {
