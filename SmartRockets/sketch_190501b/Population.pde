@@ -18,6 +18,7 @@ class Population {
       population[i].fitness();
     }
   }
+  
   void selection(){}
   
   void reproduction(){
@@ -33,8 +34,8 @@ class Population {
       
       DNA child = momGenes.crossover(dadGenes);
       
-      PVector startingPosition = new PVector(width/2,height+20);
-      population[i] = new Rocket(startingPosition); 
+      PVector startingPosition = new PVector(width/2,height);
+      population[i] = new Rocket(startingPosition,child); 
     }
     generations++;
   }

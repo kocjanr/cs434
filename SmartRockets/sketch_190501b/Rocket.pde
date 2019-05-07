@@ -16,6 +16,14 @@ class Rocket {
     position = location.get();
     size = 4;
   }
+  
+  Rocket(PVector location, DNA dna) {
+    acceleration = new PVector();
+    velocity = new PVector();
+    position = location.get();
+    size = 4;
+    dna = dna;
+  }
 
   void fitness() {
     float d = PVector.dist(position, target);
