@@ -25,14 +25,26 @@ class Population {
     }
   }
   
+  float getMaxFitness() {
+    float record = 0;
+    for (int i = 0; i < population.length; i++) {
+       if(population[i].fitness > record) {
+         record = population[i].fitness;
+       }
+    }
+    return record;
+  }
+
+  
   void selection(){
-    float bestFitness = 0;
+    matingPool.clear();
+    float maxFitness = getMaxFitness();
     
-    for (int i=0;i<population.length;i++){
-      population[i].fitness();
-      bestFitness = population[i].fitness;
-      if(population[i].fitness >bestFitness ){
-        matingPool.add(population[i]);        
+    for (int i = 0; i < population.length; i++) {
+      float fitnessNormal = map(population[i].fitness,0,maxFitness,0,1);
+      int n = (int) (fitnessNormal * 100);  // Arbitrary multiplier
+      for (int j = 0; j < n; j++) {
+        matingPool.add(population[i]);
       }
     }
   }
@@ -40,15 +52,14 @@ class Population {
   void reproduction(){
     for(int i=0;i<population.length;i++){
       
-      println(matingPool.size());
       int parentA = int(random(matingPool.size()));
       int parentB = int(random(matingPool.size()));
       
       Rocket mom = matingPool.get(parentA);
       Rocket dad = matingPool.get(parentB);
       
-      DNA momGenes = mom.getDNA();
-      DNA dadGenes = dad.getDNA();
+      DNA momGenes = mom.dna;
+      DNA dadGenes = dad.dna;
       
       DNA child = momGenes.crossover(dadGenes);
       

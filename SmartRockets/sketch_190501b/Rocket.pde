@@ -34,6 +34,7 @@ class Rocket {
     applyForce(dna.genes[geneCounter]);
     geneCounter++;
     update();
+    display();
   }
 
   void applyForce(PVector f) {
@@ -69,9 +70,5 @@ class Rocket {
     endShape();
 
     popMatrix();
-  }
-  
-  DNA getDNA() {
-    return dna;
   }
 }
