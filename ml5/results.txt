@@ -1,0 +1,39 @@
+This is a:
+
+pizza, pizza pie
+
+With a confidence level of:
+
+1.0000
+============================
+This is a:
+
+electric guitar
+
+With a confidence level of:
+
+0.8429
+============================
+This is a:
+
+ballplayer, baseball player
+
+With a confidence level of:
+
+0.7414
+============================
+This is a:
+
+drum, membranophone, tympan
+
+With a confidence level of:
+
+0.9986
+============================
+This is a:
+
+greenhouse, nursery, glasshouse
+
+With a confidence level of:
+
+0.3942
