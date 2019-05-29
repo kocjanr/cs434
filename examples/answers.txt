@@ -1,0 +1,5 @@
+1. Quality 
+2. Training and test data will help validate your model to know it works how you want
+3. The Transformer API can do all the math at once for you so you dont have to
+4. CV is a way to estimate a functions performace. In an ML workflow CV is to evalute hyperparamets and their effectiveness
+5. Save to the model to a .pkl file
