@@ -27,3 +27,22 @@ pipeline = make_pipeline(preprocessing.StandardScaler(),RandomForestRegressor(n_
 
 hyperparameters = { 'randomforestregressor__max_features' : ['auto', 'sqrt', 'log2'],
                   'randomforestregressor__max_depth': [None, 5, 3, 1]}
+
+clf = GridSearchCV(pipeline,hyperparameters, cv=10)
+clf.fit(X_train,y_train)
+
+y_pred = clf.predict(X_test)
+
+print(y_pred)
+
+joblib.dump(clf,'rf_regressor.plk')
+
+#load already made model
+# clf2 = joblib.load('rf_regressor.plk')
+# clf2.predict(X_test)
+
+# print(r2_score(y_test,y_pred))
+# print(mean_squared_error(y_test,y_pred))
+
+# print(clf.best_params_)
+# print(clf.refit)
